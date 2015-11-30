@@ -1,0 +1,53 @@
+<div class="modal" id="success">
+	
+	<div class="modal__title block-title">
+		Спасибо за оставленную заявку!
+	</div> <!-- /.modal__title block-title -->
+
+	<div class="modal__text">
+		<p>
+			Наш менеджер свяжется <br />
+			с вами в ближайшее время.
+		</p>
+	</div> <!-- /.modal__text -->
+
+	<a href="#success" class="modal-opener js-fancybox"></a>
+</div> <!-- /.modal -->  
+
+<div class="modal" id="callback">
+	
+	<div class="modal__title block-title">
+		Обратный звонок
+	</div> <!-- /.modal__title block-title -->
+
+	<div class="modal__form">
+		
+		<form action="thanks.php?form=modal-1" class="form" method="post"
+		data-form-name="Форма попап 'Обратный звонок'"
+		data-form-id="modal-1">
+			<input type="hidden" name="required" value="phone" />
+			<input type="hidden" name="form" value="Форма попап 'Обратный звонок'" />
+		
+			<div class="form__input-placeholder">
+					
+				<input type="text" class="form__input form__input--border form__input--h48" name="name" placeholder="Ваше имя" />
+		
+			</div> <!-- /.form__input-placeholder -->
+		
+			<div class="form__input-placeholder">
+					
+				<input type="tel" class="form__input form__input--border form__input--h48 required" name="phone" placeholder="Номер телефона" />
+		
+			</div> <!-- /.form__input-placeholder -->
+			
+			<div class="form__button-placeholder">
+					
+				<button class="button button--yellow button--h48 button--block">ЗАКАЗАТЬ</button>
+		
+			</div> <!-- /.form__button -->
+		
+		</form> <!-- /.form -->
+
+	</div> <!-- /.modal__form -->
+
+</div> <!-- /.modal -->  
