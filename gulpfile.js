@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
 var spritesmith = require('gulp.spritesmith');
 var autoprefixer = require('gulp-autoprefixer');
 var server = require('gulp-server-livereload');
@@ -18,6 +19,7 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .on('error', console.log)
+        .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest('./app/css'));;
 });
 
