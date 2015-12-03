@@ -1,1 +1,1 @@
-# yandex-safeguard 
+# yandex-browser 
