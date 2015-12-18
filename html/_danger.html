@@ -1,0 +1,181 @@
+@@if (server === "dnevnik"){
+
+@@include("./__head.html", {
+			"title": "Где может поджидать опасность?"
+		})
+
+}
+
+@@if (server === "mosreg"){
+
+@@include("./__head-mosreg.html", {
+			"title": "Где может поджидать опасность?"
+		})
+
+}
+
+	<div class="yab-container">
+		
+		@@if (server === "dnevnik"){
+
+		@@include("./_header.html", {
+					"activePage": 1
+				})
+
+		}
+		
+		@@if (server === "mosreg"){
+
+		@@include("./_header-mosreg.html", {
+					"activePage": 1
+				})
+
+		}
+
+
+		@@include("./_promo.html", {
+					"activePage": 1,
+					"link1": "http://download.cdn.yandex.net/downloadable_soft/browser/350734/Yandex.exe?vid=38&hash=9894ea6cfccde342a8a49fe8da9b3daa&.exe"
+				})
+
+
+
+		<section class="yab-content">
+					
+			<div class="yab-content__wrap wrap">
+				
+				<h1 class="yab-content__title">
+					Где может поджидать опасность?
+				</h1> <!-- /.yab-content__title -->
+
+				<div class="yab-content__content">
+
+					<div class="yab-content__block yab-danger">
+					
+						<ul class="yab-danger__list">
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--wifi">
+
+								<h3 class="yab-danger-item__title">
+									Опасный Wi-Fi
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										Так бывает, что интернет нужен здесь и&nbsp;сейчас, а&nbsp;удостовериться, что обнаруженная бесплатная сеть безопасна, может не&nbsp;каждый. В&nbsp;таких случаях риск отдать свои личные данные мошенникам очень велик. Но&nbsp;Яндекс.Браузер не&nbsp;промах! Он&nbsp;подключается к&nbsp;серверу по&nbsp;специальному протоколу и&nbsp;передаёт информацию через зашифрованное подключение. <br />
+										<strong>Работайте под прикрытием! </strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--virus">
+
+								<h3 class="yab-danger-item__title">
+									Вредоносные программы
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										Запомните, в&nbsp;интернете картинка может быть больше, чем картинка&nbsp;&mdash; настоящим вредоносным вирусом. Это касается любого файла, размещенного в&nbsp;интернете: видео, фотографии, картинки, программы. Яндекс.Браузер оснащён специальной технологией Protect, включающей проверку всех загружаемых файлов. <strong>Беритесь за&nbsp;дело и&nbsp;качайте смело!</strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--redirect">
+
+								<h3 class="yab-danger-item__title">
+									Переадресация
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										Бывают такие ситуации, когда &laquo;случайно&raquo; нажал не&nbsp;туда, а&nbsp;вас там уже и&nbsp;ждали! Некоторые сайты содержат вредоносный код или связаны с&nbsp;СМС-мошенничеством, о&nbsp;чем Яндекс.Браузер вас всегда предупредит. При попытке зайти на&nbsp;такой сайт, или случайной переадресации, загрузка страницы остановится, а&nbsp;браузер покажет предупреждение. <strong>Всё по-честному!</strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--sms">
+
+								<h3 class="yab-danger-item__title">
+									СМС-мошенничество
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										С&nbsp;помощью СМС пользователи могут оплачивать услуги и&nbsp;подписываться на&nbsp;платные рассылки. Но&nbsp;этот механизм освоили и&nbsp;мошенники, которые обманом принуждают человека отправить СМС на&nbsp;платный номер или подписывают его на&nbsp;несуществующую услугу. <br />
+										Команда Яндекс.Браузера борется с&nbsp;подобной проблемой с&nbsp;помощью технологии Safe&nbsp;Browsing, которая позволяет блокировать вредоносные страницы (в&nbsp;том числе с&nbsp;СМС-мошенничеством). <strong>Будьте внимательны!</strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--fakes">
+
+								<h3 class="yab-danger-item__title">
+									Сайты-подделки
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										Интернет-мошенники очень изобретательны. Настолько, что легко подделывают популярные сайты, и&nbsp;вы&nbsp;даже не&nbsp;заметите, как отдадите свой пароль в&nbsp;руки негодяев. Но&nbsp;не&nbsp;переживайте, теперь в&nbsp;Яндекс.Браузер встроена защита паролей. Если ввести пароль от&nbsp;популярного ресурса на&nbsp;любом другом сайте, то&nbsp;браузер не&nbsp;даст его отправить в&nbsp;Сеть до&nbsp;тех пор, пока вы&nbsp;явно не&nbsp;согласитесь на&nbsp;это. <strong>Доверяйте, но&nbsp;проверяйте!</strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+							
+							<li class="yab-danger__item yab-danger-item yab-danger-item--answers">
+
+								<h3 class="yab-danger-item__title">
+									Сайты с ответами и решениями 
+								</h3> <!-- /.yab-danger-item__title -->
+
+								<div class="yab-danger-item__text yab-text">
+									<p>
+										Когда наступает горячая пора экзаменов и&nbsp;ЕГЭ, в&nbsp;Сети появляется большое количество сообщений на&nbsp;тему готовых ответов. Мошенники предлагают вам купить ответы, отправив СМС-сообщение или расплатившись при помощи электронного кошелька. Запомните, готовых ответов предстоящего экзамена в&nbsp;интернете не&nbsp;существует! Это строго конфиденциальная информация. <strong>Благодаря технологиям Protect и&nbsp;Safe&nbsp;Browsing вы&nbsp;никогда не&nbsp;попадетесь 
+										на&nbsp;такую приманку.</strong>
+									</p>
+								</div> <!-- /.yab-danger-item__text yab-text -->
+						
+							</li> <!-- /.yab-danger__item -->
+						
+						</ul> <!-- /.yab-danger__list -->
+
+					</div> <!-- /.yab-content__block -->
+				
+				</div> <!-- /.yab-content__content -->
+		
+			</div> <!-- .yab-content__wrap .wrap -->
+		
+		</section>
+
+
+		@@if (server === "dnevnik"){
+
+		@@include("./_more.html", {
+					"activePage": 1
+				})
+
+		}
+		
+		@@if (server === "mosreg"){
+
+		@@include("./_more-mosreg.html", {
+					"activePage": 1
+				})
+
+		}
+
+
+		@@include("./_footer.html", {
+					"activePage": 1,
+					"link2": "http://download.cdn.yandex.net/downloadable_soft/browser/350734/Yandex.exe?vid=39&hash=dff705218251a3155b7cbb4c72a19442&.exe"
+				})
+
+		
+	</div> <!-- end .body-container -->
+
+
+@@include(include "./__foot.html")

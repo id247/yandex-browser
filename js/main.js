@@ -3,136 +3,181 @@
   "use strict";
 
 
+  var modal = (function(){
 
-  var fancyBoxes = function(){
+    var currentModal = false;
 
-    var formName = false;
-    var formId = false;
-    var $fancybox = $('.js-fancybox');
+    var modalOverlay = document.getElementById('yab-modal-overlay');
+    var modals = document.querySelectorAll('.yab-modal');
 
-    $fancybox.on('click', function(){
-      formName = $(this).data('form-name');
-      formId = $(this).data('form-id');
-    });
+    var doc = document.documentElement || document.body;
 
-    $fancybox.fancybox({
-      padding: 0,
-      scrolling: 'no',
-      autoCenter : false,
-      fitToView: false,
-      arrows: false,
-      helpers: {
-          overlay: {
-              locked: false // if true (default), the content will be locked into overlay
-          }
-      },
-      afterLoad: function( current, previous ){
-        
-        var $current = $(current.content);
+    var scrollTo = function (to) {
 
-        var $form = $current.find('form');
-        var $formName = $current.find('input[name="form"]');
+      to = parseInt(to) - 50;
 
-        var originalName = $form.data('form-name');
-        var originalId = $form.data('form-id');
+      var from = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 
-        if ($formName.length === 1){
-
-          //console.log('formName ' + formName );
-
-          if ( formName ){
-            $formName.val( formName );
-          }else if( originalName ){
-            $formName.val( originalName );
-          }
-
-        }
-
-        if ($form.length === 1){
-
-          //console.log('formId ' + formId );
-
-          if ( formId ){
-            $form.attr('action', 'thanks.php?formId=' + formId );
-          }else if( originalId ){
-            $form.attr('action', 'thanks.php?formId=' + originalId );
-          }
-
-        }
-
-      }
-    });
- 
-  };
-
-  //smooth scroll
-  var scrollMeTo = function(){
-    var scrollToTopOfset = 0 ;//$( '#header' ).outerHeight() || 0;
-
-    $('.js-goto').on('click', function(e){
-      var $target = $(this.href.replace( /^.*\#/, '#' ));
+      var time = 300;
+      var unit = '';
       
-      if ($target.length !== 1) return false;
+      var start = new Date().getTime();
+      var timer = setInterval(function() {
+            var step = Math.min(1,(new Date().getTime()-start)/time);
 
-        $('body,html').animate({ 
-          scrollTop: $target.offset().top - scrollToTopOfset }, 
-        500);
-        return false;
-    });
+            //firefox fix
+            if (document.body.scrollTop > 0){
+              document.body.scrollTop = (from+step*(to-from))+unit;
+            }else if (document.documentElement.scrollTop > 0){
+              document.documentElement.scrollTop = (from+step*(to-from))+unit;
+            }
 
-  };
+            if( step == 1) clearInterval(timer);
+      },25);
 
+      doc.scrollTop = from;
 
-  //alax forms
-  var validateForms = function(){
-
-    var alaxOptions = {
-      timeout: 3000,
-      datatype: 'json',
-      success: function showResponse(responseText, statusText, xhr, $form)  { 
-        var target = $form.data('popup') || 'success';
-        $('a.modal-opener[href="#' + target + '"]').trigger('click');
-      }       
-    };
-    
-    var submitForm = function(form){
-      $(form).ajaxSubmit( alaxOptions );
     }
 
+    var overlayShow = function(){
+      modalOverlay.classList.add('yab-modal-overlay--visible');
+    }
 
-    var validateMessages = {
-      required: "Поле обязательно для заполнения",
-      email: "Введите корректный e-mail",
-    };
+    var overlayHide = function(){
+      modalOverlay.classList.remove('yab-modal-overlay--visible');
+    }
 
-    $.extend($.validator.messages, validateMessages );
+    var modalShow = function(modal, top){
+      modal.style.top = ( top.indexOf('px') > -1 ) ? top : top + 'px';
+      modal.classList.add('yab-modal--visible');
+    }
 
-    $('form').each(function() {
-      $(this).validate({
-        //errorPlacement: function(error, element) {},
-        submitHandler: function(form) {
-          submitForm(form);
-        }
+    var modalHide = function(modal){
+      modal.style.top = '';
+      modal.classList.remove('yab-modal--visible');
+    }
+
+    var modalOpen = function(modalId){
+      
+      var top = 0;
+
+      [].forEach.call(modals, function(modal){
+        if (modal.id === modalId){
+
+          //if modal already opened 
+          if (currentModal){
+
+            top = currentModal.style.top;
+
+            modalHide(currentModal);
+
+            modalShow(modal, top);             
+            
+            scrollTo(top);
+
+          }else{
+            
+            top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+            
+            overlayShow();
+             
+            modalShow(modal, top + 'px');            
+
+          }
+
+          currentModal = modal;
+
+        }        
+      
       });
-    });
-
-  };
-
-  //bxsliders
-  var bxSliders = function(){
-
-    $('#main-slider').bxSlider({
-      pager: false
-    });
-
-  };
-
-  $(document).ready(function() {
     
-    fancyBoxes();
-    validateForms();
-    scrollMeTo();
+    }
 
-  });
+    var modalClose = function(){
+      
+      overlayHide();
+
+      [].forEach.call(modals, function(modal){
+        modalHide(modal);
+      });
+
+      currentModal = false;
+    
+    }
+
+    var modalOpenClick = function(){
+
+      document.addEventListener('click', function(event){
+            
+        event = event || window.event;
+        var el = event.target || event.srcElement;
+
+        while (el && el.tagName && el.tagName.toLowerCase() !== 'body') {
+
+          if (el.classList.contains('js-yab-modal')){
+
+            event.preventDefault();
+          
+            var modalId = el.getAttribute('href').slice(1);
+
+            modalOpen(modalId);
+
+            el = false;
+
+          }else{
+            el = el.parentNode;
+          }
+
+        }
+
+      });
+
+    }
+
+    var modalCloseClick = function(){
+
+      document.addEventListener('click', function(event){
+            
+        event = event || window.event;
+        var el = event.target || event.srcElement;
+
+        while (el && el.tagName && el.tagName.toLowerCase() !== 'body') {
+
+          if (el.classList.contains('js-yab-modal-close')){
+
+            event.preventDefault();
+          
+            modalClose();
+
+            el = false;
+
+          }else{
+            el = el.parentNode;
+          }
+
+        }
+
+      });
+
+    }
+
+    var init = function(){
+      modalOpenClick();
+      modalCloseClick();
+    }
+
+    return{
+      init: init
+    }
+  
+  })();
+
+    
+  //start the magic
+  document.addEventListener("DOMContentLoaded", function() {
+
+    modal.init();
+
+  });    
   
 }());

@@ -1,0 +1,199 @@
+@@if (server === "dnevnik"){
+@@include("./__head.html", {
+			"title": "Истории из жизни"
+		})
+
+}
+@@if (server === "mosreg"){
+@@include("./__head-mosreg.html", {
+			"title": "Истории из жизни"
+		})
+
+}
+
+	<div class="yab-container">
+		
+		@@if (server === "dnevnik"){
+
+		@@include("./_header.html", {
+					"activePage": 2
+				})
+
+		}
+		
+		@@if (server === "mosreg"){
+
+		@@include("./_header-mosreg.html", {
+					"activePage": 2
+				})
+
+		}
+
+
+		@@include("./_promo.html", {
+					"activePage": 2,
+					"link1": "http://download.cdn.yandex.net/downloadable_soft/browser/350734/Yandex.exe?vid=38&hash=9894ea6cfccde342a8a49fe8da9b3daa&.exe"
+				})
+
+
+
+		<section class="yab-content">
+					
+			<div class="yab-content__wrap wrap">
+				
+				<h1 class="yab-content__title">
+					Истории из жизни
+				</h1> <!-- /.yab-content__title -->
+
+				<div class="yab-content__content">
+
+					<div class="yab-content__block yab-stories">
+						
+						<div class="yab-stories__nav yab-stories-nav">
+							
+							<ul class="yab-stories-nav__list">
+								
+								<li class="yab-stories-nav__item yab-stories-nav__item--1">
+
+									<a href="#yab-story-1" class="yab-stories-nav__href yab-stories-nav__href--1 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												У меня самый<br>
+												сложный пароль!
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+								<li class="yab-stories-nav__item yab-stories-nav__item--2">
+
+									<a href="#yab-story-2" class="yab-stories-nav__href yab-stories-nav__href--2 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												Дам списать!
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+								<li class="yab-stories-nav__item yab-stories-nav__item--3">
+
+									<a href="#yab-story-3" class="yab-stories-nav__href yab-stories-nav__href--3 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												Меня взломали, это не я!
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+								<li class="yab-stories-nav__item yab-stories-nav__item--4">
+
+									<a href="#yab-story-4" class="yab-stories-nav__href yab-stories-nav__href--4 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												Вы выиграли<br>
+												поездку в Париж!
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+								<li class="yab-stories-nav__item yab-stories-nav__item--5">
+
+									<a href="#yab-story-5" class="yab-stories-nav__href yab-stories-nav__href--5 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												Можно узнать<br>
+												ваш номер телефона?
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+								<li class="yab-stories-nav__item yab-stories-nav__item--6">
+
+									<a href="#yab-story-6" class="yab-stories-nav__href yab-stories-nav__href--6 js-yab-modal">
+										<span class="yab-stories-nav__bubble">
+											<span class="yab-stories-nav__href-text">
+												Нет времени<br>
+												объяснять!
+											</span>
+										</span>
+									</a>
+
+								</li> <!-- /.yab-stories-nav__item -->
+
+							</ul> <!-- /.yab-stories-nav__list -->
+
+						</div> <!-- /.yab-stories__nav  -->
+
+						<div class="yab-stories__text yab-text">
+							<p>
+								В интернете существует много способов подловить даже самого внимательного пользователя, но, как говорится, волков бояться – в лес не ходить. Думаете, вы достаточно осторожны и аккуратны? 
+							</p>
+
+							<p>
+								Наши герои тоже были уверены, что опасность им не грозит,  однако в один прекрасный день, вдруг что-то пошло не так. 
+							</p>
+						</div><!-- /.yab-stories__text -->
+
+					</div> <!-- /.yab-content__block yab-text -->
+
+				</div> <!-- /.yab-content__content -->
+		
+			</div> <!-- .yab-content__wrap .wrap -->
+		
+		</section>
+
+
+
+
+
+
+		@@if (server === "dnevnik"){
+
+		@@include("./_more.html", {
+					"activePage": 2
+				})
+
+		}
+		
+		@@if (server === "mosreg"){
+
+		@@include("./_more-mosreg.html", {
+					"activePage": 2
+				})
+
+		}
+				
+
+		@@include("./_footer.html", {
+					"activePage": 2,
+					"link2": "http://download.cdn.yandex.net/downloadable_soft/browser/350734/Yandex.exe?vid=39&hash=dff705218251a3155b7cbb4c72a19442&.exe"
+				})
+		
+	</div> <!-- end .body-container -->
+
+
+	
+	<!-- MODALS -->
+
+
+	<div class="yab-modal-overlay js-yab-modal-close" id="yab-modal-overlay"></div><!-- /.modal-overlay -->
+
+	@@include("./_story-1.html", {})
+	@@include("./_story-2.html", {})
+	@@include("./_story-3.html", {})
+	@@include("./_story-4.html", {})
+	@@include("./_story-5.html", {})
+	@@include("./_story-6.html", {})
+
+
+
+@@include(include "./__foot.html")

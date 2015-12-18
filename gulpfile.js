@@ -7,6 +7,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var server = require('gulp-server-livereload');
 var fileinclude = require('gulp-file-include');
 var strip = require('gulp-strip-comments');
+var uglify = require('gulp-uglify');
 
 //compile sass
 gulp.task('sass', function () {
@@ -30,6 +31,7 @@ gulp.task('autoprefixer', function () {
             browsers: ['> 1%'],
             cascade: false
         }))
+        .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest('./app/css'));
 });
 
@@ -50,6 +52,7 @@ gulp.task('sprite', function() {
 // copy js file to app
 gulp.task('copy-js', function() {
 	gulp.src('./js/*.js')
+        .pipe(uglify())
    		.pipe(gulp.dest('./app/js'));
 });
 
