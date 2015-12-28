@@ -53,6 +53,7 @@ gulp.task('sprite', function() {
 gulp.task('copy-js', function() {
 	gulp.src('./js/*.js')
         .pipe(uglify())
+        .on('error', console.log)
    		.pipe(gulp.dest('./app/js'));
 });
 

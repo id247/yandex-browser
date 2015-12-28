@@ -172,11 +172,33 @@
   
   })();
 
+  function downloadLinks(){
+
+    function rand(){
+      return Math.floor( Math.random() * (999999 - 100000) );
+    }
+
+    const links = [
+      'http://ads.adfox.ru/222314/goLink?p1=bmiys&p2=v&p5=divaw&pr=' + rand() + '&puid1=&puid2=&puid3=&puid4=&puid5=&puid6=&puid7=&puid8=&puid9=&puid10=&puid11=&puid12=&puid13=&puid14=&puid15=&puid16=&puid17=',
+      'http://ads.adfox.ru/222314/goLink?p1=bmiys&p2=v&p5=divbg&pr=' + rand() + '&puid1=&puid2=&puid3=&puid4=&puid5=&puid6=&puid7=&puid8=&puid9=&puid10=&puid11=&puid12=&puid13=&puid14=&puid15=&puid16=&puid17='
+    ]
+
+    const topLink = document.getElementById('bur-download-top');
+    const bottomLink = document.getElementById('bur-download-bottom');
+
+    console.log(links[0]);
+
+    topLink.href = links[0];
+    bottomLink.href = links[1];
+
+  }
+
     
   //start the magic
   document.addEventListener("DOMContentLoaded", function() {
 
     modal.init();
+    //downloadLinks();
 
   });    
   
